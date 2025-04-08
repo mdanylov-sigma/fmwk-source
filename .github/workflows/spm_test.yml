@@ -1,12 +1,13 @@
 name: Manual Job - Clone and Copy Files
 
 on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: 'Tag name to use in the second repo'
-        required: true
-        default: '100.0.0'
+  push:
+  # workflow_dispatch:
+  #   inputs:
+  #     tag:
+  #       description: 'Tag name to use in the second repo'
+  #       required: true
+  #       default: '100.0.0'
 
 jobs:
   clone-and-copy:
