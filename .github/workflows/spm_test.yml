@@ -40,7 +40,7 @@ jobs:
         run: |
           cd fmwk-spm
           git add .
-          git commit -m "version 3333"
+          git commit -m "version 1111"
           git push origin main
 
       # - name: Tag and push
