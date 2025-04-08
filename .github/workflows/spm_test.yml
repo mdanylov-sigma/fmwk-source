@@ -1,13 +1,13 @@
 name: Manual Job - Clone and Copy Files
 
 on:
-  push:
-  # workflow_dispatch:
-  #   inputs:
-  #     tag:
-  #       description: 'Tag name to use in the second repo'
-  #       required: true
-  #       default: '100.0.0'
+  # push:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag name to use in the second repo'
+        required: true
+        default: '100.0.0'
 
 jobs:
   clone-and-copy:
@@ -40,7 +40,7 @@ jobs:
         run: |
           cd fmwk-spm
           git add .
-          git commit -m "version 1111"
+          git commit -m "version ${{ github.event.inputs.tag }}"
           git push origin main
 
       # - name: Tag and push
