@@ -24,7 +24,7 @@ jobs:
 
       - name: Checkout Package repo 
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           git clone https://x-access-token:${GH_TOKEN}@github.com/mdanylov-sigma/fmwk-spm.git fmwk-spm
 
@@ -35,6 +35,8 @@ jobs:
           rsync -a --delete Frameworks/XCPrebidMobile.xcframework fmwk-spm/Frameworks/
 
       - name: Commit and push to second repo
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           cd fmwk-spm
           git add .
