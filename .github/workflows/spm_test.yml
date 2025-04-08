@@ -28,11 +28,6 @@ jobs:
         run: |
           git clone https://x-access-token:${GH_TOKEN}@github.com/mdanylov-sigma/fmwk-spm.git fmwk-spm
 
-      - name: Copy files to second repo
-        run: |
-          cp Package.swift fmwk-spm/
-          cp  fmwk-spm/path/in/second/repo/
-
       - name: Replace files in second repo
         run: |
           rsync -a --delete Package.swift fmwk-spm/
@@ -43,11 +38,11 @@ jobs:
         run: |
           cd fmwk-spm
           git add .
-          git commit -m "version ${{ github.event.inputs.tag }}"
+          git commit -m "version 1203123"
           git push origin main
 
-      - name: Tag and push
-        run: |
-          cd fmwk-spm
-          git tag ${{ github.event.inputs.tag }}
-          git push origin ${{ github.event.inputs.tag }}
+      # - name: Tag and push
+      #   run: |
+      #     cd fmwk-spm
+      #     git tag ${{ github.event.inputs.tag }}
+      #     git push origin ${{ github.event.inputs.tag }}
